@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - MiniBoss
+  - SpawnPoint
+  - Porta
+  - Enemy2
+  - Boss
+  - EnemyDead
+  - SpawPoint
+  - Rooms
+  - Bullet
+  - Otto
   layers:
   - Default
   - TransparentFX
@@ -38,6 +49,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 874100895
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
