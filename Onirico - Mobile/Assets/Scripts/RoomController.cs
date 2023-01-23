@@ -8,19 +8,18 @@ public class RoomController : MonoBehaviour
 
     public bool hasDoor;
     public List<RoomPositionChecker> checkers;
-    public List<Vector3> roomAvailablePositions;
+    public List<RoomPositionChecker> roomAvailablePositions;
 
     [SerializeField] private List<DungeonController.directions> roomDoorsNeeded;
 
     private void OnEnable()
     {
         GetComponentInParent<RoomSpawner>().rooms.Add(this);
-    }    
-
-    public void UpdatePositions(DungeonController.directions direction, Vector3 position)
-    {
-        if (direction != DungeonController.directions.none) roomDoorsNeeded.Add(direction);
-        if (position != Vector3.zero) roomAvailablePositions.Add(position);
     }
 
+    public void UpdatePositions(DungeonController.directions direction, RoomPositionChecker checker)
+    {
+        if (direction != DungeonController.directions.none) roomDoorsNeeded.Add(direction);
+        if (checker != null && !roomAvailablePositions.Contains(checker)) roomAvailablePositions.Add(checker);
+    }
 }

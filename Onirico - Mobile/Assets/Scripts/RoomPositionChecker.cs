@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class RoomPositionChecker : MonoBehaviour
 {
-    [SerializeField]private DungeonController.directions myDirection;
     private RoomController roomController;
-    private bool hasRoom = false;
     private Vector2 roomSize;
+
+    public bool hasRoom = false;
+    public string Name => GetComponentInParent<RoomController>().GetComponent<Transform>().name + " - " + GetComponent<Transform>().name;
+    public DungeonController.directions myDirection;
 
     private void Awake()
     {
@@ -27,33 +29,27 @@ public class RoomPositionChecker : MonoBehaviour
 
     public void UpdateRoomCheckers()
     {
-        if (!hasRoom)
+        if (hasRoom)
         {
-            var sideDistance = roomSize.x;
-            var topDistance = roomSize.y;
-            var placeholderPosition = transform.position;
-            switch (myDirection)
-            {
-                case DungeonController.directions.Left:
-                    placeholderPosition = new Vector3(transform.position.x + sideDistance * -1f, transform.position.y, 0f);
-                    this.gameObject.transform.position = transform.position + new Vector3(roomSize.x * -1, 0f);
-                    break;
-                case DungeonController.directions.Right:
-                    placeholderPosition = new Vector3(transform.position.x + sideDistance, transform.position.y, 0f);
-                    this.gameObject.transform.position = transform.position + new Vector3(roomSize.x, 0f);
-                    break;
-                case DungeonController.directions.Top:
-                    placeholderPosition = new Vector3(transform.position.x, transform.position.y + topDistance, 0f);
-                    this.transform.position = transform.position + new Vector3(0f, roomSize.y);
-                    break;
-                case DungeonController.directions.Bottom:
-                    placeholderPosition = new Vector3(transform.position.x, transform.position.y + topDistance * -1f, 0f);
-                    this.gameObject.transform.position = transform.position + new Vector3(0f, roomSize.y * -1);
-                    break;
-            }
-            roomController.UpdatePositions(DungeonController.directions.none, placeholderPosition);
+            roomController.UpdatePositions(myDirection, null);
             return;
         }
-        roomController.UpdatePositions(myDirection, Vector3.zero);
+
+        switch (myDirection)
+        {
+            case DungeonController.directions.Left:
+                gameObject.transform.position = transform.position + new Vector3(roomSize.x * -1, 0f);
+                break;
+            case DungeonController.directions.Right:
+                gameObject.transform.position = transform.position + new Vector3(roomSize.x, 0f);
+                break;
+            case DungeonController.directions.Top:
+                transform.position = transform.position + new Vector3(0f, roomSize.y);
+                break;
+            case DungeonController.directions.Bottom:
+                gameObject.transform.position = transform.position + new Vector3(0f, roomSize.y * -1);
+                break;
+        }
+        roomController.UpdatePositions(DungeonController.directions.none, this);
     }
 }
