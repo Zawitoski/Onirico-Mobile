@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c5339a434a43b4886b00d35aeb89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasRoom: 0
   myDirection: 3
 --- !u!1 &3038605737777579716
 GameObject:
@@ -329,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c5339a434a43b4886b00d35aeb89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasRoom: 0
   myDirection: 2
 --- !u!1 &3038605738049647742
 GameObject:
@@ -412,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c5339a434a43b4886b00d35aeb89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasRoom: 0
   myDirection: 0
 --- !u!1 &3038605738255389099
 GameObject:
@@ -460,7 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590f9c48de4baa24fbe7a0a8a6c9cd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasDoor: 0
   checkers:
   - {fileID: 3038605738049647736}
   - {fileID: 3038605737804782103}
@@ -640,6 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3038605738488085597}
+  - component: {fileID: 6458976846630107569}
   m_Layer: 0
   m_Name: RoomVisuals
   m_TagString: Untagged
@@ -666,6 +669,23 @@ Transform:
   m_Father: {fileID: 3038605738255389098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6458976846630107569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3038605738488085570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87e504c65eb01d47aa0ffcd869c3ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floors:
+  - {fileID: 21300000, guid: f64c27ebf0faa5143a3ba0e8a3603716, type: 3}
+  - {fileID: 21300000, guid: e1dce27b23ef8fb4f8014e29f0bdd72a, type: 3}
+  - {fileID: 21300000, guid: afcfcc075cd19b141a37f8a4064b8bee, type: 3}
+  floorParent: {fileID: 3038605738569191115}
 --- !u!1 &3038605738569191115
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +697,7 @@ GameObject:
   - component: {fileID: 3038605738569191109}
   - component: {fileID: 3038605738569191114}
   m_Layer: 0
-  m_Name: "Ch\xE3o 1"
+  m_Name: "Ch\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -830,6 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c5339a434a43b4886b00d35aeb89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasRoom: 0
   myDirection: 1
 --- !u!1 &3038605738889137481
 GameObject:

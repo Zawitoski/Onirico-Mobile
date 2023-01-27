@@ -36,10 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\RoomSpawner.cs" />
-     <Compile Include="Assets\Scripts\DungeonController.cs" />
-     <Compile Include="Assets\Scripts\RoomController.cs" />
-     <Compile Include="Assets\Scripts\RoomPositionChecker.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomSpawner.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\DungeonInfos.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomController.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomPositionChecker.cs" />
+     <Compile Include="Assets\Scripts\RoomVisuals.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\DungeonController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
