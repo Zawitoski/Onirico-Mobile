@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+    public bool isSpawn = false;
+    public bool isCurrentRoom = false;
     public List<RoomPositionChecker> checkers;
     public List<RoomPositionChecker> roomAvailablePositions;
 

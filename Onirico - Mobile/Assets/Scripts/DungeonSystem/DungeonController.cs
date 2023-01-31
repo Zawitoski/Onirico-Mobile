@@ -5,6 +5,8 @@ using UnityEngine;
 public class DungeonController : MonoBehaviour
 {
     public bool roomsGenerated = false;
+    public GameObject currentRoom;
+    public List<RoomController> rooms;
 
     private bool visualsUpdated = false;
     private RoomSpawner roomSpawner => GetComponent<RoomSpawner>();
@@ -19,6 +21,12 @@ public class DungeonController : MonoBehaviour
             roomSpawner.GenerateRooms();
         }
 
+        GenerateVisuals();
+        UpdateCurrentRoom();
+    }
+
+    private void GenerateVisuals()
+    {
         if (roomsGenerated && !visualsUpdated)
         {
             foreach (RoomController room in roomSpawner.rooms)
@@ -29,5 +37,11 @@ public class DungeonController : MonoBehaviour
         }
     }
 
-
+    public void UpdateCurrentRoom()
+    {
+        foreach (var room in rooms)
+        {
+            if (room.isCurrentRoom) currentRoom = room.gameObject;
+        }
+    }
 }

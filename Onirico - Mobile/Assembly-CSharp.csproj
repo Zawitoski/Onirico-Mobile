@@ -36,12 +36,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Player\BulletAttribute.cs" />
      <Compile Include="Assets\Scripts\DungeonSystem\RoomSpawner.cs" />
-     <Compile Include="Assets\Scripts\DungeonSystem\DungeonInfos.cs" />
-     <Compile Include="Assets\Scripts\DungeonSystem\RoomController.cs" />
-     <Compile Include="Assets\Scripts\DungeonSystem\RoomPositionChecker.cs" />
-     <Compile Include="Assets\Scripts\RoomVisuals.cs" />
+     <Compile Include="Assets\Scripts\HealthSystem.cs" />
+     <Compile Include="Assets\Scripts\Player\Shooter.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerHealthSystem.cs" />
      <Compile Include="Assets\Scripts\DungeonSystem\DungeonController.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\DungeonInfos.cs" />
+     <Compile Include="Assets\Scripts\CameraSystem.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomController.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomPositionChecker.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomVisuals.cs" />
+     <Compile Include="Assets\Scripts\DungeonSystem\RoomBounds.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -701,6 +709,12 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
         <HintPath>D:\Programas e Recursos\Onirico\Onirico-Mobile\Onirico - Mobile\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>D:\Programas e Recursos\Onirico\Onirico-Mobile\Onirico - Mobile\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>D:\Programas e Recursos\Onirico\Onirico-Mobile\Onirico - Mobile\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

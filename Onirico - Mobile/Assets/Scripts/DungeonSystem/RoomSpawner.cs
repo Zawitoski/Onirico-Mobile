@@ -16,6 +16,8 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private List<RoomPositionChecker> AvailableCheckers;
     [SerializeField] private List<Vector3> ignoredPositions = new List<Vector3>();
 
+    private int forcedSpawns = 0;
+
     private void Start()
     {
         UpdateAvailableSpawnPositions();
@@ -70,7 +72,7 @@ public class RoomSpawner : MonoBehaviour
 
     private List<Vector3> SelectSpawnPositions(List<Vector3> availablePositions)
     {
-        if (AvailableCheckers.Count <= 0) return null;
+        if (AvailableCheckers.Count <= 0 || roomsGenerated) return null;
 
         List<Vector3> selectedPositions = new List<Vector3>();
 
@@ -81,6 +83,19 @@ public class RoomSpawner : MonoBehaviour
             else ignoredPositions.Add(position);
         }
 
+        //força o spawn baseado no minimo possivel caso nenhum tenha passado no random acima
+        if (selectedPositions.Count < DungeonInfos.MinRoomsToSpawn && !roomsGenerated)
+            do
+            {
+                print("Selected Positions Count = " + selectedPositions.Count);
+                foreach (Vector3 position in availablePositions)
+                {
+                    selectedPositions.Add(position);
+                    ignoredPositions.Remove(position);
+                    forcedSpawns++;
+                }
+            } while (selectedPositions.Count < DungeonInfos.MinRoomsToSpawn);
+
         return selectedPositions;
     }
 
@@ -90,6 +105,8 @@ public class RoomSpawner : MonoBehaviour
         if (rooms.Count == maxRooms)
         {
             print("All Rooms Spawned: " + rooms.Count + " rooms.");
+            print("Forced room spawns = " + forcedSpawns);
+            GetComponent<DungeonController>().rooms = rooms;
             roomsGenerated = true;
             return null;
         }
